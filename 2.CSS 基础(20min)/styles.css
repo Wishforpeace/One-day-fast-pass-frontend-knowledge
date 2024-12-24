@@ -1,0 +1,182 @@
+/* 1. 基础选择器和属性 */
+
+/* 元素选择器 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 20px;
+    background-color: #a70b0b;
+}
+
+/* 类选择器 */
+.container {
+    max-width: 1000px;
+    min-width: 320px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+/* ID选择器 */
+#header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+/* 2. 文本样式 */
+h1 {
+    color: #f7a130;
+    font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+p {
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* 3. 盒模型 */
+.box {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #333;
+    background-color: #fff;
+    /* 改变盒模型计算方式 */
+    box-sizing: border-box;
+}
+
+/* 4. 弹性布局 */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.flex-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+    background-color: #e0e0e0;
+}
+
+/* 5. 网格布局 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 6. 定位 */
+.relative {
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* 7. 过渡和动画 */
+.button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 关键帧动画 */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100px); }
+}
+
+.animated {
+    animation: slide 2s infinite alternate;
+}
+
+/* 8. 响应式设计 */
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .flex-item {
+        flex: 100%;
+    }
+
+    .container {
+        width: 95%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
+/* 9. 伪类和伪元素 */
+a:hover {
+    color: #e74c3c;
+}
+
+.quote::before {
+    content: '"';
+    font-size: 2em;
+    color: #999;
+}
+
+/* 10. 高级选择器 */
+/* 子选择器 */
+.parent > .child {
+    border: 1px solid #ccc;
+}
+
+/* 相邻选择器 */
+h2 + p {
+    font-weight: bold;
+}
+
+/* 属性选择器 */
+input[type="text"] {
+    border: 2px solid #3498db;
+    padding: 5px;
+}
+
+/* 5. 添加悬停效果 */
+.container:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+} 
