@@ -1,182 +1,514 @@
-/* 1. 基础选择器和属性 */
+/* =============== CSS基础教程 =============== */
 
-/* 元素选择器 */
-body {
-    font-family: Arial, sans-serif;
-    margin: 10px;
-    padding: 20px;
-    background-color: #a70b0b;
-}
+/* CSS选择器优先级：
+   1. !important
+   2. 内联样式 style=""
+   3. ID选择器 #id
+   4. 类选择器 .class
+   5. 标签选择器 div, p, etc
+   6. 通用选择器 * */
 
-/* 类选择器 */
-.container {
-    max-width: 1000px;
-    min-width: 320px;
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    border: 1px solid #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-}
-
-/* ID选择器 */
-#header {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-}
-
-/* 2. 文本样式 */
-h1 {
-    color: #f7a130;
-    font-size: 2em;
+/* 1. 基础文本样式 */
+.title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
     text-align: center;
-    text-transform: uppercase;
+    margin: 20px 0;
+    /* 文字阴影：水平偏移 垂直偏移 模糊度 颜色 */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-p {
+.text {
     line-height: 1.6;
-    color: #666;
-    margin-bottom: 15px;
+    font-family: "微软雅黑", Arial, sans-serif;
+    /* 段落首行缩进 */
+    text-indent: 2em;
+    /* 字间距 */
+    letter-spacing: 0.5px;
 }
 
-/* 3. 盒模型 */
+/* 2. 盒模型演示 */
 .box {
-    width: 200px;
-    height: 200px;
+    background-color: #f0f0f0;
+    /* padding: 上右下左 */
     padding: 20px;
-    margin: 20px;
+    /* margin: 上下 左右 */
+    margin: 20px auto;
     border: 2px solid #333;
-    background-color: #fff;
-    /* 改变盒模型计算方式 */
+    border-radius: 8px;
+    /* 设置盒模型类型 */
     box-sizing: border-box;
+    /* 最大宽度 */
+    max-width: 600px;
 }
 
-/* 4. 弹性布局 */
+/* 3. 弹性布局 */
 .flex-container {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    padding: 20px;
+    justify-content: center;
     align-items: center;
+    background-color: #eee;
+    /* flex-wrap允许项目换行 */
     flex-wrap: wrap;
-    gap: 20px;
+    /* 设置主轴方向 */
+    flex-direction: row;
 }
 
 .flex-item {
-    flex: 1;
-    min-width: 200px;
     padding: 20px;
-    background-color: #e0e0e0;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    /* flex: grow shrink basis */
+    flex: 1 1 200px;
 }
 
-/* 5. 网格布局 */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
+/* 4. 定位 */
+.position-demo {
+    position: relative;
+    height: 150px;
+    background-color: #f5f5f5;
+    margin: 20px;
+    /* 溢出处理 */
+    overflow: hidden;
 }
 
-.grid-item {
-    background-color: #ddd;
-    padding: 20px;
-    text-align: center;
-}
-
-/* 6. 定位 */
 .relative {
     position: relative;
-    top: 20px;
     left: 20px;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px;
+    /* z-index控制层级 */
+    z-index: 1;
 }
 
 .absolute {
     position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.fixed {
-    position: fixed;
-    bottom: 20px;
     right: 20px;
+    top: 20px;
+    background-color: #FF5722;
+    color: white;
+    padding: 10px;
+    z-index: 2;
 }
 
-/* 7. 过渡和动画 */
-.button {
+/* 5. 悬停效果 */
+.hover-button {
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    /* transition: 属性 持续时间 时间函数 延迟 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.button:hover {
-    background-color: #2980b9;
+.hover-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+/* 6. 网格布局 */
+.grid-container {
+    display: grid;
+    /* 定义列的大小和数量 */
+    grid-template-columns: repeat(3, 1fr);
+    /* 定义行间距和列间距 */
+    gap: 15px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+.grid-item {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+/* 7. 渐变和阴影效果 */
+.gradient-demo {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.linear-gradient {
+    /* 线性渐变 */
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
+    /* 多层阴影效果 */
+    box-shadow: 
+        0 4px 6px rgba(0,0,0,0.1),
+        0 1px 3px rgba(0,0,0,0.08);
+}
+
+.radial-gradient {
+    /* 径向渐变 */
+    background: radial-gradient(circle, #ff6b6b, #4ecdc4);
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
+}
+
+/* 8. 动画效果 */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.animation-demo {
+    padding: 20px;
+    text-align: center;
+}
+
+.animated-box {
+    display: inline-block;
+    padding: 20px;
+    background-color: #9b59b6;
+    color: white;
+    border-radius: 4px;
+    /* animation: 名称 持续时间 时间函数 延迟 次数 方向 */
+    animation: bounce 2s ease-in-out infinite;
+}
+
+/* 9. 变形效果 */
+.transform-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.transform-item {
+    padding: 20px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.transform-item.rotate:hover {
+    /* 旋转45度 */
+    transform: rotate(45deg);
+}
+
+.transform-item.scale:hover {
+    /* 放大1.5倍 */
+    transform: scale(1.5);
+}
+
+.transform-item.skew:hover {
+    /* 倾斜20度 */
+    transform: skew(20deg);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+    
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .title {
+        font-size: 20px;
+    }
+    
+    .transform-container {
+        flex-direction: column;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .hover-button,
+    .animation-demo,
+    .transform-container {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        color: black;
+    }
+}
+
+/* 10. 自定义滚动条 */
+.custom-scrollbar {
+    height: 200px;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f5f5f5;
+    margin: 20px;
+}
+
+/* 滚动条整体部分 */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* 滚动条滑块 */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+/* 滚动条轨道 */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* 11. 多列布局 */
+.multi-column-text {
+    column-count: 3;
+    column-gap: 40px;
+    column-rule: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+}
+
+.multi-column-text h3 {
+    column-span: all;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 12. 卡片效果 */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card-button:hover {
+    background: #0056b3;
+}
+
+/* 13. 加载动画 */
+.loading-demos {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* 旋转动画 */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 脉冲动画 */
+.pulse {
+    width: 40px;
+    height: 40px;
+    background: #3498db;
+    border-radius: 50%;
+    animation: pulse 1.5s ease infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+/* 跳动点动画 */
+.dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dots div {
+    width: 12px;
+    height: 12px;
+    background: #3498db;
+    border-radius: 50%;
+    animation: bounce 0.5s ease infinite;
+}
+
+.dots div:nth-child(2) { animation-delay: 0.1s; }
+.dots div:nth-child(3) { animation-delay: 0.2s; }
+
+/* 14. 毛玻璃效果 */
+.glass-effect {
+    position: relative;
+    height: 200px;
+    margin: 20px;
+    background-image: url('https://via.placeholder.com/800x400');
+    background-size: cover;
+    background-position: center;
+}
+
+.glass-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    text-align: center;
+}
+
+/* 15. CSS网格高级布局 */
+.advanced-grid {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    gap: 10px;
+    padding: 20px;
+    background: #f0f0f0;
+}
+
+.grid-header {
+    grid-area: header;
+    background: #2196F3;
+    padding: 20px;
+    color: white;
+}
+
+.grid-sidebar {
+    grid-area: sidebar;
+    background: #4CAF50;
+    padding: 20px;
+    color: white;
+}
+
+.grid-main {
+    grid-area: main;
+    background: #FF5722;
+    padding: 20px;
+    color: white;
+}
+
+.grid-footer {
+    grid-area: footer;
+    background: #9C27B0;
+    padding: 20px;
+    color: white;
+}
+
+/* 16. 响应式图片画廊 */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
     transform: scale(1.1);
 }
 
-/* 关键帧动画 */
-@keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(100px); }
-}
-
-.animated {
-    animation: slide 2s infinite alternate;
-}
-
-/* 8. 响应式设计 */
-@media screen and (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr;
+/* 17. 打印样式优化 */
+@media print {
+    /* 添加分页控制 */
+    .page-break-after {
+        page-break-after: always;
     }
 
-    .flex-item {
-        flex: 100%;
+    /* 确保背景色和图片打印 */
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
-    .container {
-        width: 95%;
-        padding: 10px;
-        margin-top: 10px;
+    /* 显示链接URL */
+    a[href]::after {
+        content: " (" attr(href) ")";
     }
 }
 
-/* 9. 伪类和伪元素 */
-a:hover {
-    color: #e74c3c;
-}
+/* 18. 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
 
-.quote::before {
-    content: '"';
-    font-size: 2em;
-    color: #999;
-}
+    .card {
+        background-color: #2d2d2d;
+        color: #ffffff;
+    }
 
-/* 10. 高级选择器 */
-/* 子选择器 */
-.parent > .child {
-    border: 1px solid #ccc;
+    .custom-scrollbar {
+        background-color: #2d2d2d;
+    }
 }
-
-/* 相邻选择器 */
-h2 + p {
-    font-weight: bold;
-}
-
-/* 属性选择器 */
-input[type="text"] {
-    border: 2px solid #3498db;
-    padding: 5px;
-}
-
-/* 5. 添加悬停效果 */
-.container:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-} 
