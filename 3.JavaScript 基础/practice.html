@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 进阶练习</title>
+    <style>
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
+        .demo-box { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 5px;
+        }
+        .highlight { background-color: yellow; }
+        .todo-item { 
+            display: flex; 
+            align-items: center; 
+            margin: 5px 0;
+        }
+        .completed { text-decoration: line-through; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 1. DOM 操作练习 -->
+        <div class="demo-box">
+            <h3>DOM 操作示例</h3>
+            <button id="addElement" >添加元素</button>
+            <button id="toggleColor">切换颜色</button>
+            <div id="elementContainer"></div>
+        </div>
+
+        <!-- 2. 事件处理练习 -->
+        <div class="demo-box">
+            <h3>事件处理示例</h3>
+            <!-- 更改输入写内容的颜色 -->
+            <input type="text" id="keyInput" placeholder="输入些内容"> 
+            <div id="mouseArea" style="height: 100px; background: #f0f0f0; margin-top: 10px;">
+                在此区域移动鼠标
+            </div>
+            <div id="eventOutput"></div>
+        </div>
+
+        <!-- 3. 待办事项列表 -->
+        <div class="demo-box">
+            <h3>待办事项列表</h3>
+            <input type="text" id="todoInput" placeholder="输入待办事项">
+            <button onclick="addTodo()">添加</button>
+            <div id="todoList"></div>
+        </div>
+    </div>
+
+    <script>
+        // 1. DOM 操作示例
+        document.getElementById('addElement').addEventListener('click', function() {
+            // 创建新元素
+            const newDiv = document.createElement('div');
+            newDiv.textContent = '这是新添加的元素 ' + new Date().toLocaleTimeString();
+            newDiv.className = 'demo-box';
+            
+            // 添加到容器中
+            document.getElementById('elementContainer').appendChild(newDiv);
+        });
+
+        document.getElementById('toggleColor').addEventListener('click', function() {
+            // 获取所有 demo-box 元素
+            const boxes = document.getElementsByClassName('demo-box');
+            for(let box of boxes) {
+                // 切换 highlight 类
+                box.classList.toggle('highlight');
+            }
+        });
+
+        // 2. 事件处理示例
+        const keyInput = document.getElementById('keyInput');
+        const mouseArea = document.getElementById('mouseArea');
+        const eventOutput = document.getElementById('eventOutput');
+
+        // 键盘事件
+        keyInput.addEventListener('keyup', function(event) {
+            showEvent(`键盘事件: 按下了 ${event.key}`);
+        });
+
+        // 鼠标事件
+        mouseArea.addEventListener('mousemove', function(event) {
+            mouseArea.textContent = `鼠标位置 - X: ${event.offsetX}, Y: ${event.offsetY}`;
+        });
+
+        function showEvent(text) {
+            const p = document.createElement('p');
+            p.textContent = text;
+            eventOutput.insertBefore(p, eventOutput.firstChild);
+            
+            // 只保留最近5条记录
+            if(eventOutput.children.length > 5) {
+                eventOutput.removeChild(eventOutput.lastChild);
+            }
+        }
+
+        // 3. 待办事项列表
+        let todos = [];
+
+        function addTodo() {
+            const input = document.getElementById('todoInput');
+            const text = input.value.trim();
+            
+            if(text) {
+                // 创建新的待办事项
+                todos.push({
+                    id: Date.now(),
+                    text: text,
+                    completed: false
+                });
+                
+                input.value = '';
+                renderTodos();
+            }
+        }
+
+        function toggleTodo(id) {
+            // 使用数组方法查找和更新待办事项
+            todos = todos.map(todo => 
+                todo.id === id ? {...todo, completed: !todo.completed} : todo
+            );
+            renderTodos();
+        }
+
+        function deleteTodo(id) {
+            // 使用数组过滤方法删除待办事项
+            todos = todos.filter(todo => todo.id !== id);
+            renderTodos();
+        }
+
+        function renderTodos() {
+            const todoList = document.getElementById('todoList');
+            todoList.innerHTML = '';
+
+            todos.forEach(todo => {
+                const div = document.createElement('div');
+                div.className = 'todo-item';
+                div.innerHTML = `
+                    <input type="checkbox" 
+                           ${todo.completed ? 'checked' : ''} 
+                           onchange="toggleTodo(${todo.id})">
+                    <span class="${todo.completed ? 'completed' : ''}">${todo.text}</span>
+                    <button onclick="deleteTodo(${todo.id})">删除</button>
+                `;
+                todoList.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html> 

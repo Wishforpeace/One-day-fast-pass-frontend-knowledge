@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 基础教程</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .result {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript 交互示例</h1>
+        
+        <!-- 1. 基础输入输出 -->
+        <section>
+            <h2>1. 基础输入输出</h2>
+            <input type="text" id="userName" placeholder="请输入你的名字">
+            <button onclick="sayHello()">打招呼</button>
+            <div id="greeting" class="result"></div>
+        </section>
+
+        <!-- 2. 数字计算 -->
+        <section>
+            <h2>2. 简单计算器</h2>
+            <input type="number" id="num1" placeholder="第一个数字">
+            <input type="number" id="num2" placeholder="第二个数字">
+            <button onclick="calculate()">计算</button>
+            <div id="calculationResult" class="result"></div>
+        </section>
+
+        <!-- 3. 数组操作 -->
+        <section>
+            <h2>3. 数组操作</h2>
+            <button onclick="demonstrateArray()">显示数组操作</button>
+            <div id="arrayResult" class="result"></div>
+        </section>
+    </div>
+
+    <script>
+        // 1. 变量声明和基本函数
+        function sayHello() {
+            // 获取输入框的值
+            let name = document.getElementById('userName').value;
+            
+            // 条件判断
+            if (name === '') {
+                name = '陌生人';
+            }
+            
+            // 字符串拼接
+            let message = '你好, ' + name + '! 现在是: ' + new Date().toLocaleString();
+            
+            // 修改 DOM 元素内容
+            document.getElementById('greeting').innerHTML = message;
+        }
+
+        // 2. 数字运算和数学操作
+        function calculate() {
+            // 获取输入值并转换为数字
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+            
+            // 进行基本运算
+            let results = {
+                加法: num1 + num2,
+                减法: num1 - num2,
+                乘法: num1 * num2,
+                除法: num2 !== 0 ? num1 / num2 : '除数不能为0'
+            };
+            
+            // 使用循环和字符串模板
+            let output = '';
+            for (let operation in results) {
+                output += `${operation}: ${results[operation]}<br>`;
+            }
+            
+            document.getElementById('calculationResult').innerHTML = output;
+        }
+
+        // 3. 数组操作示例
+        function demonstrateArray() {
+            // 创建数组
+            let fruits = ['苹果', '香蕉', '橙子'];
+            
+            // 数组方法演示
+            fruits.push('葡萄');  // 添加元素
+            fruits.sort();        // 排序
+            
+            // 数组遍历
+            let output = '数组操作演示:<br>';
+            fruits.forEach((fruit, index) => {
+                output += `${index + 1}. ${fruit}<br>`;
+            });
+            
+            // 数组转换
+            let fruitsList = fruits.map(fruit => `美味的${fruit}`);
+            output += '<br>添加描述:<br>' + fruitsList.join('<br>');
+            
+            document.getElementById('arrayResult').innerHTML = output;
+        }
+    </script>
+</body>
+</html>
