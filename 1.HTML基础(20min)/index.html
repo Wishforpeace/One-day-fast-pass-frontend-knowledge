@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <!-- head部分包含页面的元信息 -->
+    <meta charset="UTF-8">
+    <title>HTML速成教程</title>
+</head>
+<body>
+    <!-- 1. 标题标签 -->
+    <h1>这是最大的标题</h1>
+    <h2>这是二级标题</h2>
+    <h3>这是三级标题</h3>
+    <h4>这是四级标题</h4>
+    <!-- h1到h6依次变小 -->
+
+    <!-- 2. 段落和文本格式 -->
+    <p>这是一个段落。</p>
+    <p>这是另一个段落，包含<strong>粗体文本</strong>和<em>斜体文本</em>。</p>
+    <p>这是一个<br>换行的例子</p>
+
+    <!-- 3. 列表 -->
+    <!-- 无序列表 -->
+    <ul>
+        <li>项目1</li>
+        <li>项目2</li>
+        <li>项目3</li>
+    </ul>
+
+    <!-- 有序列表 -->
+    <ol>
+        <li>第一步</li>
+        <li>第二步</li>
+        <li>第三步</li>
+    </ol>
+
+    <!-- 4. 链接和图片 -->
+    <a href="https://www.example.com">这是一个链接</a>
+    <!-- 调整图片大小和居中 -->
+    <img src="https://via.placeholder.com/150" alt="示例图片" style="width: 200px; display: block; margin: 0 auto;">
+
+    <!-- 5. 表格 -->
+    <table border="1">
+        <tr>
+            <th>表头1</th>
+            <th>表头2</th>
+        </tr>
+        <tr>
+            <td>数据1</td>
+            <td>数据2</td>
+        </tr>
+    </table>
+
+    <!-- 6. 表单 -->
+    <form>
+        <!-- 文本输入 -->
+        <input type="text" placeholder="请输入用户名"><br>
+        
+        <!-- 密码输入 -->
+        <input type="password" placeholder="请输入密码"><br>
+        
+        <!-- 单选按钮 -->
+        <input type="radio" name="gender" value="male"> 男
+        <input type="radio" name="gender" value="female"> 女<br>
+        
+        <!-- 复选框 -->
+        <input type="checkbox"> 我同意服务条款<br>
+        
+        <!-- 下拉菜单 -->
+        <select>
+            <option>选项1</option>
+            <option>选项2</option>
+            <option>选项3</option>
+        </select><br>
+        
+        <!-- 提交按钮 -->
+        <button type="submit">提交</button>
+    </form>
+
+    <!-- 7. 区域划分和语义化标签 -->
+    <!-- 使用语义化标签进行页面布局 -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2>文章标题</h2>
+            <section>
+                <h3>第一部分</h3>
+                <p>这是文章的第一个部分。</p>
+            </section>
+            <section>
+                <h3>第二部分</h3>
+                <p>这是文章的第二个部分。</p>
+            </section>
+        </article>
+
+        <aside>
+            <h3>侧边栏</h3>
+            <p>这里是一些相关信息。</p>
+        </aside>
+    </main>
+
+    <!-- 8. 多媒体元素 -->
+    <section class="multimedia">
+        <h2>多媒体展示</h2>
+        
+        <!-- 视频播放器 -->
+        <video width="320" height="240" controls>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            您的浏览器不支持视频标签。
+        </video>
+
+        <!-- 音频播放器 -->
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+            <source src="audio.ogg" type="audio/ogg">
+            您的浏览器不支持音频标签。
+        </audio>
+
+        <!-- 嵌入式内容 -->
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/VIDEO_ID" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </section>
+
+    <!-- 9. 高级表单元素 -->
+    <section class="advanced-form">
+        <h2>高级表单示例</h2>
+        <form>
+            <!-- 日期选择器 -->
+            <label for="birthday">生日：</label>
+            <input type="date" id="birthday" name="birthday"><br>
+
+            <!-- 颜色选择器 -->
+            <label for="color">选择颜色：</label>
+            <input type="color" id="color" name="color"><br>
+
+            <!-- 范围滑块 -->
+            <label for="volume">音量（0-100）：</label>
+            <input type="range" id="volume" name="volume" min="0" max="100"><br>
+
+            <!-- 文件上传 -->
+            <label for="file">选择文件：</label>
+            <input type="file" id="file" name="file" multiple><br>
+
+            <!-- 数字输入 -->
+            <label for="quantity">数量（1-5）：</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="5"><br>
+
+            <!-- 搜索框 -->
+            <label for="search">搜索：</label>
+            <input type="search" id="search" name="search"><br>
+
+            <!-- 电话号码 -->
+            <label for="phone">电话号码：</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{11}"><br>
+
+            <!-- 文本区域 -->
+            <label for="message">留言：</label><br>
+            <textarea id="message" name="message" rows="4" cols="50"></textarea>
+        </form>
+    </section>
+
+    <!-- 10. 语义化文本标签 -->
+    <section class="semantic-text">
+        <h2>语义化文本示例</h2>
+        
+        <!-- 引用 -->
+        <blockquote cite="https://www.example.com">
+            这是一段长引用文本。
+            <footer>——<cite>引用来源</cite></footer>
+        </blockquote>
+
+        <!-- 短引用 -->
+        <p>有人说：<q>这是一段短引用</q></p>
+
+        <!-- 代码展示 -->
+        <pre><code>
+    function hello() {
+        console.log("Hello, World!");
+    }
+        </code></pre>
+
+        <!-- 标记文本 -->
+        <p>这是一段文本，其中<mark>这部分被高亮标记</mark></p>
+
+        <!-- 时间标记 -->
+        <p>发布时间：<time datetime="2024-01-01">2024年1月1日</time></p>
+
+        <!-- 缩写 -->
+        <p><abbr title="HyperText Markup Language">HTML</abbr> 是网页的标准标记语言</p>
+
+        <!-- 定义列表 -->
+        <dl>
+            <dt>HTML</dt>
+            <dd>超文本标记语言，用于创建网页。</dd>
+            <dt>CSS</dt>
+            <dd>层叠样式表，用于设计网页样式。</dd>
+        </dl>
+    </section>
+
+    <!-- 11. 进度和度量 -->
+    <section class="progress-meters">
+        <h2>进度和度量示例</h2>
+        
+        <!-- 进度条 -->
+        <label>下载进度：</label>
+        <progress value="70" max="100">70%</progress><br>
+
+        <!-- 度量器 -->
+        <label>使用情况：</label>
+        <meter value="0.6" min="0" max="1">60%</meter>
+    </section>
+
+    <!-- 12. 详情和摘要 -->
+    <details>
+        <summary>点击查看更多信息</summary>
+        <p>这里是被隐藏的详细内容。点击摘要可以展开或收起这部分内容。</p>
+    </details>
+
+    <footer>
+        <p>版权所有 © 2024</p>
+    </footer>
+
+    <!-- div和span的使用示例 -->
+    <div class="container">
+        这是一个块级容器
+        <span class="highlight">这是一个行内元素</span>
+        继续块级容器的内容
+    </div>
+</body>
+</html> 
